@@ -28,15 +28,17 @@ def browser_manager(setup_env):
         "browserVersion": "100.0",
         "selenoid:options": {
             "enableVNC": True,
-            "enableVideo": True
+            "enableVideo": False
         }
     }
 
     options.capabilities.update(selenoid_capabilities)
-    browser.config.driver = webdriver.Remote(
+    driver = webdriver.Remote(
         command_executor=f"https://{SELENOID_LOGIN}:{SELENOID_PASSWORD}@{SELENOID_URL}/wd/hub",
         options=options
     )
+
+    browser.config.driver = driver
 
     yield browser
 
