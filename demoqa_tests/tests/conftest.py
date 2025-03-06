@@ -10,11 +10,10 @@ from dotenv import load_dotenv
 @pytest.fixture(scope="session")
 def setup_env():
     load_dotenv()
+    SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
+    SELENOID_PASSWORD = os.getenv("SELENOID_PASSWORD")
+    SELENOID_URL = os.getenv("SELENOID_URL")
 
-
-SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
-SELENOID_PASSWORD = os.getenv("SELENOID_PASSWORD")
-SELENOID_URL = os.getenv("SELENOID_URL")
 
 @pytest.fixture(scope='function')
 def browser_manager(setup_env):
@@ -34,7 +33,7 @@ def browser_manager(setup_env):
 
     options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
-        command_executor=f"https://{SELENOID_LOGIN}:{SELENOID_PASSWORD}@{SELENOID_URL}/wd/hub",
+        command_executor=f"https://{setup_env.SELENOID_LOGIN}:{setup_env.SELENOID_PASSWORD}@{setup_env.SELENOID_URL}/wd/hub",
         options=options
     )
 
