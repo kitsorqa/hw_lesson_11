@@ -62,6 +62,7 @@ class RegistrationPage:
     @allure.step("Ввод адреса")
     def fill_current_address(self, *args):
         browser.element('#currentAddress').type(*args)
+        browser.execute_script('window.scrollBy(0, 400);')
 
     @allure.step("Выбор региона")
     def fill_current_state(self, state):
