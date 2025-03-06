@@ -6,15 +6,15 @@ from selenium.webdriver.chrome.options import Options
 from demoqa_tests.utils import attach
 from dotenv import load_dotenv
 
-SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
-SELENOID_PASSWORD = os.getenv("SELENOID_PASSWORD")
-SELENOID_URL = os.getenv("SELENOID_URL")
-
 
 @pytest.fixture(scope="session")
 def setup_env():
     load_dotenv()
 
+
+SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
+SELENOID_PASSWORD = os.getenv("SELENOID_PASSWORD")
+SELENOID_URL = os.getenv("SELENOID_URL")
 
 @pytest.fixture(scope='function')
 def browser_manager(setup_env):
