@@ -11,6 +11,7 @@ from demoqa_tests.model.pages.registration_page import RegistrationPage
 @allure.feature('Форма студента')
 @allure.story('Заполнение формы валидными данными')
 @allure.link("https://github.com", name='Testing')
+@allure.title("Successful test for fill form")
 def test_filling_student_registration_from(browser_manager):
     rp = RegistrationPage()
 
