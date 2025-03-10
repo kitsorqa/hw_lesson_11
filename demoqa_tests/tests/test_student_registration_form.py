@@ -45,6 +45,6 @@ def test_filling_student_registration_from(browser_manager):
 @pytest.mark.skip
 def test_for_skip():
     pass
-@pytest.mark.xfail
+
 def test_for_fail():
-    pass
+    raise Exception("Тестовое падение")
