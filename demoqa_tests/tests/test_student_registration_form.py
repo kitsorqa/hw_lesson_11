@@ -41,10 +41,3 @@ def test_filling_student_registration_from(browser_manager):
         address="Улица Пушкина, дом Котолушкина",
         state_and_city="NCR Noida"
     )
-
-@pytest.mark.skip
-def test_for_skip():
-    pass
-
-def test_for_fail():
-    raise Exception("Тестовое падение")
